@@ -83,3 +83,25 @@ stack_t *mul(stack_t **stack, unsigned int line_number)
 	return (*stack);
 
 }
+stack_t *divd(stack_t **stack, unsigned int line_number)
+{
+	int div = 0;
+	stack_t *current_node = *stack;
+
+	if (!current_node || !current_node->next)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		free(stack);
+		exit(EXIT_FAILURE);
+	}
+	if(current_node->next == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	div = (current_node->next->n) / (current_node->n);
+	current_node->next->n = div;
+	pop(stack, 0);
+	return (*stack);
+}
