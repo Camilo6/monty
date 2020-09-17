@@ -72,7 +72,7 @@ stack_t *mul(stack_t **stack, unsigned int line_number)
 
 	if (!current_node || !current_node->next)
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		free(stack);
 		exit(EXIT_FAILURE);
 	}
