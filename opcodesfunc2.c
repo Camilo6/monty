@@ -64,5 +64,22 @@ stack_t *sub(stack_t **stack, unsigned int line_number)
 	current_node->next->n = diff;
 	pop(stack, 0);
 	return (*stack);
+}
+stack_t *mul(stack_t **stack, unsigned int line_number)
+{
+	int mul = 0;
+	stack_t *current_node = *stack;
+
+	if (!current_node || !current_node->next)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		free(stack);
+		exit(EXIT_FAILURE);
+	}
+
+	mul = (current_node->next->n) * (current_node->n);
+	current_node->next->n = mul;
+	pop(stack, 0);
+	return (*stack);
 
 }

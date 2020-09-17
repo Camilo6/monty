@@ -11,6 +11,7 @@
 stack_t *(*get_op(char *bf, stack_t **head, unsigned int lin_m))(stack_t **head, unsigned int line_number)
 {
 	instruction_t selector[] = {
+		{"mul", mul},
 		{"sub", sub},
 		{"nop", nop},
 		{"swap", swap},
