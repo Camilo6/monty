@@ -1,11 +1,16 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef _MONTY_H_
+#define _MONTY_H_
+
+/* Libraries */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
+/* Declaration of the global variables */
 extern int Number_entered;
+
+/* Structures */
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -18,12 +23,13 @@ extern int Number_entered;
  */
 typedef struct stack_s
 {
-    int n;
-    struct stack_s *prev;
-    struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
+
 /**
- * struct instruction_s - opcoode and its function
+ * struct instruction_s - opcode and its function
  * @opcode: the opcode
  * @f: function to handle the opcode
  *
@@ -32,14 +38,15 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-    char *opcode;
-    void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	stack_t *(*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-stack_t *push(stack_t **list, unsigned int line_number);
-stack_t *pall(stack_t **list, unsigned int line_number);
-stack_t *(*get_op(char *buffer, stack_t **list,
-           unsigned int line_number))(stack_t **stack,
-                          unsigned int line_number);
 
-void pint(stack_t **head, unsigned int line_number);
-#endif /* MONTY_H */
+
+/* Prototypes */
+stack_t *push(stack_t **head, unsigned int line_number);
+stack_t *pall(stack_t **head, unsigned int line_number);
+stack_t *(*get_op(char *buffer, stack_t **head,
+		   unsigned int line_number))(stack_t **head,
+					      unsigned int line_number);
+#endif /* _MONTY_H_ */
