@@ -6,16 +6,19 @@ Read or watch:
 * [How do I use extern to share variables between source files in C?](https://intranet.hbtn.io/rltoken/9neX6gaN6DoA-ow1INgZqw)
 
 ---
-## Learning Objectives:bulb:
-What you should learn from this project:
-
-* What do LIFO and FIFO mean
-* What is a stack, and when to use it
-* What is a queue, and when to use it
-* What are the common implementations of stacks and queues
-* What are the most common use cases of stacks and queues
-* What is the proper way to use global variables
-
+## Usage
+####Monty interpreter
+The Monty language is a very simple programming language. Monty relies on a unique stack of integers and performs some operations.  
+Usage is : `./monty FILE.m` where `FILE` contains lines of commands.  
+Lines are of the type `opcode [argument]`.  
+Current opcodes are: 
+Number | Opcode | Description
+---|---|---|
+1 | **Push** | push onto stack. This opcode is the only one requiring an argument. This argument must be an integer. |
+2 | **Pall** | print all stack.|
+3 | **Swap** | swap the top 2 elements of the stack.|
+4 | **Add** | pop the 2 elements at the top, push the result of the addition on the stack.|
+4 | **Nop** | does not do anything|
 ---
 
 ### [0. push, pall](./1000-holberton.bf)
@@ -53,3 +56,4 @@ What you should learn from this project:
 
 ## Author
 * **Julian Camilo Torres** - [Camilo6](https://github.com/Camilo6)
+* **Camilo Andrés Barreiro** - [Cbarreiro96](https://github.com/CBarreiro96)

@@ -44,9 +44,17 @@ typedef struct instruction_s
 
 
 /* Prototypes */
+void check(char *buffer, ssize_t get, stack_t *stc, FILE *monty);
+void abrirarchivo(char *file);
+stack_t *pint(stack_t **head, unsigned int line_number);
 stack_t *push(stack_t **head, unsigned int line_number);
 stack_t *pall(stack_t **head, unsigned int line_number);
 stack_t *(*get_op(char *buffer, stack_t **head,
 		   unsigned int line_number))(stack_t **head,
 					      unsigned int line_number);
+stack_t *pop(stack_t **head, unsigned int line_number);
+stack_t *swap(stack_t **head, unsigned int line_number);
+stack_t *add(stack_t **stack, unsigned int line_number);
+stack_t *nop(stack_t **stack, unsigned int line_number);
+stack_t *sub(stack_t **stack, unsigned int line_number);
 #endif /* _MONTY_H_ */
