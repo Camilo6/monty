@@ -29,7 +29,7 @@ void abrirarchivo(char *file)
 		{
 			free(buffer);
 			if (stc != NULL)
-				free(stc);
+				frees(&stc);
 			fclose(monty);
 			return;
 		} line_number++;
@@ -42,7 +42,7 @@ void abrirarchivo(char *file)
 				fprintf(stderr, "L%d: usage: push integer\n",
 					line_number);
 				free(buffer);
-				free(stc);
+				frees(&stc);
 				fclose(monty);
 				exit(EXIT_FAILURE);
 			}
@@ -53,13 +53,13 @@ void abrirarchivo(char *file)
 					fprintf(stderr,	"L%d: usage: push integer\n",
 						line_number);
 					free(buffer);
-					free(stc);
+					frees(&stc);
 					fclose(monty);
 					exit(EXIT_FAILURE);
 				}
 			} Number_entered = atoi(Number_string);
 		} get_op(opcode, &stc, line_number)(&stc, line_number);
-	} free(buffer); 
-	free(stc);
+	} free(buffer);
+	frees(&stc);
 	fclose(monty);
 }
